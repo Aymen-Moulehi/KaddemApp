@@ -23,4 +23,7 @@ public class Contrat implements Serializable {
     @Column(name = "nontant_contart",nullable = false)
     private Integer montantContrat;
 
+    @ManyToOne
+    Etudiant etudiant;
+
 }

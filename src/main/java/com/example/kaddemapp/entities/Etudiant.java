@@ -2,6 +2,7 @@ package com.example.kaddemapp.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 public class Etudiant implements Serializable {
@@ -18,6 +19,13 @@ public class Etudiant implements Serializable {
 
     @Enumerated(EnumType.STRING)
     private Option option;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "etudiant")
+    private Set<Contrat> contrats;
 
+    @ManyToOne
+    private Department department;
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "etudiants")
+    private Set<Equipe> equipes;
 
 }
