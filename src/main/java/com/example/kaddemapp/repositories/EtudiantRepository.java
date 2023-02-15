@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface EtudiantRepository extends JpaRepository<Etudiant, Integer> {
     // Récupérer les étudiants d’un département donné
-    List<Etudiant> findEtudiantByDepartment_IdDepartment(Integer departmentId);
+    List<Etudiant> findEtudiantByDepartmentIdDepartment(Integer departmentId);
 
-    //Récupérer les étudiants dont l’équipe a un niveau SENIOR
-    List<Etudiant> findByEquipes_Niveau_Expert();
+    //Récupérer les étudiants d_Niveau_Expertont l’équipe a un niveau SENIOR
+    List<Etudiant> findByEquipesNiveau(Niveau niveau);
 }
