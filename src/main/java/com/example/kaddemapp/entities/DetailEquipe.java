@@ -1,5 +1,6 @@
 package com.example.kaddemapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,5 +24,6 @@ public class DetailEquipe implements Serializable {
     private String thematique;
 
     @OneToOne(mappedBy = "detailEquipe")
+    @JsonIgnore
     private Equipe equipe;
 }

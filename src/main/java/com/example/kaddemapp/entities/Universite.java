@@ -1,9 +1,11 @@
 package com.example.kaddemapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,6 +25,6 @@ public class Universite implements Serializable {
     @Column(name = "nom_universite",nullable = false)
     private String nomUniversite;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private Set<Department> departments;
 }
