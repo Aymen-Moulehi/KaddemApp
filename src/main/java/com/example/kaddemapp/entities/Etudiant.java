@@ -34,6 +34,7 @@ public class Etudiant implements Serializable {
     @ManyToOne
     private Department department;
 
+    // mapped by == child
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "etudiants")
     private Set<Equipe> equipes;
 
