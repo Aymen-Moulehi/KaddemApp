@@ -8,6 +8,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Set;
+
 @RestController
 @AllArgsConstructor
 @RequestMapping("/department")
@@ -26,5 +29,10 @@ public class DepartmentRestController {
     @PostMapping("/add-departement")
     public Department addDepartment(@RequestBody Department department){
         return departmentRepository.save(department);
+    }
+
+    @GetMapping("retrieve-departements-where-id-universite={idUniversite}")
+    public Set<Department> retrieveDepartementsByUniversite(@PathVariable("idUniversite") Integer idUniversite){
+        return departmentService.retrieveDepartementsByUniversite(idUniversite);
     }
 }

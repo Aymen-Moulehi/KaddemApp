@@ -3,10 +3,9 @@ package com.example.kaddemapp.controller;
 import com.example.kaddemapp.entities.Universite;
 import com.example.kaddemapp.services.IUniversiteService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
 
 @RestController
 @AllArgsConstructor
@@ -17,5 +16,12 @@ public class UniversiteRestController {
     @PostMapping("/add-universite")
     public Universite addUniversite(@RequestBody Universite universite){
         return universiteService.addUniversite(universite);
+    }
+
+
+
+    @GetMapping("get-chiffre-affaire-entre-startDate={startDate}&endDate={endDate}")
+    public float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate){
+        return 0.0f;
     }
 }
