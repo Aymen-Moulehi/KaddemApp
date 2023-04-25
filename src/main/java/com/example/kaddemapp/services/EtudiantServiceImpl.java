@@ -7,18 +7,24 @@ import com.example.kaddemapp.repositories.ContratRepository;
 import com.example.kaddemapp.repositories.EquipeRepository;
 import com.example.kaddemapp.repositories.EtudiantRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Service
 @AllArgsConstructor
+@Aspect
+@Component
+@Slf4j
 public class EtudiantServiceImpl implements IEtudiantService{
 
     EtudiantRepository etudiantRepository;
     ContratRepository contratRepository;
     EquipeRepository equipeRepository;
+
     @Override
     public Etudiant addEtudiant(Etudiant etudiant) {
         return etudiantRepository.save(etudiant);
@@ -41,4 +47,11 @@ public class EtudiantServiceImpl implements IEtudiantService{
 
         return e;
     }
+
+
+    @After("execution(* com.example.kaddemapp.services.*.*(..))")
+    public void logSomethingForTest(){
+        log.info("JUST_INFO");
+    }
+
 }
